@@ -1,0 +1,177 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NhapHangTaoBaoMaster.master.cs" Inherits="NHST.NhapHangTaoBaoMaster" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <link rel="stylesheet" href="/App_Themes/NhapHangTaoBao/css/style.css">
+    <link rel="stylesheet" href="/App_Themes/NhapHangTaoBao/css/responsive.css">
+    <link rel="shortcut icon" href="/App_Themes/NhapHangTaoBao/images/favicon/favicon.ico" type="image/x-icon">
+    <script src="/App_Themes/NhapHangTaoBao/js/jquery-1.12.4.min.js"></script>
+    <link href="App_Themes/NewUI/js/sweet/sweet-alert.css" rel="stylesheet" />
+    <title>Nhập Hàng TaoBao</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <header class="header">
+            <div class="top-header">
+                <div class="container">
+                    <div class="top-header-info">
+                        <span>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <asp:Literal runat="server" ID="ltrTel"></asp:Literal>
+                        </span>
+                        <span>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <asp:Literal runat="server" ID="ltrEmail"></asp:Literal>
+                        </span>
+                    </div>
+                    <div class="top-header-right">
+                        <asp:Literal runat="server" ID="ltrCurrency"></asp:Literal>                        
+                        <div class="user-box">
+                            <asp:Literal runat="server" ID="ltrLogin"></asp:Literal>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="container">
+                    <asp:Literal runat="server" ID="ltrLogo"></asp:Literal>
+                    <nav class="main-menu">
+                        <asp:Literal runat="server" ID="ltrMenu"></asp:Literal>
+                        <div class="main-menu-overlay"></div>
+                    </nav>
+                    <div class="hamburger-btn main-menu-btn">
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer class="footer">
+            <div class="container">
+                <div class="columns">
+                    <asp:Literal runat="server" ID="ltrFooter"></asp:Literal>                   
+                </div>
+                <div class="copyright">
+                    <p style="position:fixed; left: 110%; top: 80%; text-align:center; padding-top: 20px;"><a href="https://mona.media/thiet-ke-website-tai-hcm/">Thiết kế website</a> bời <a href="https://mona.media">Mona Media</a></p>
+                </div>
+            </div>
+        </footer>
+        <span class="scroll-top"><i class="fa fa-angle-up"></i></span>
+        
+        <script src="/App_Themes/NhapHangTaoBao/js/slick-1.8.1/slick.min.js"></script>
+        <script src="/App_Themes/NhapHangTaoBao/js/Magnific-Popup-master/jquery.magnific-popup.min.js"></script>
+        <script src="/App_Themes/NhapHangTaoBao/js/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+        <script src="/App_Themes/NhapHangTaoBao/js/WOW-master/wow.min.js"></script>
+        <script src="/App_Themes/NhapHangTaoBao/js/main.js"></script>
+        <script src="App_Themes/NewUI/js/sweet/sweet-alert.js"></script>
+        <script>          
+            jQuery(document).ready(function () {
+                jQuery(".chat_fb").click(function () {
+                    jQuery('.fchat').toggle('slow');
+                });
+            });
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=1916689885307106&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            new WOW().init();
+
+            function isEmpty(str) {
+                return !str.replace(/^\s+/g, '').length; // boolean (`true` if field is empty)
+            }
+            function closewebinfo() {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/closewebinfo",
+                    //data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            $(".webinfo").remove();
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+
+        </script>
+        <style>
+            #cfacebook {
+                position: fixed;
+                bottom: 0px;
+                right: 20px;
+                z-index: 999999999999999;
+                width: 250px;
+                height: auto;
+                box-shadow: 6px 6px 6px 10px rgba(0,0,0,0.2);
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                overflow: hidden;
+            }
+
+                #cfacebook .fchat {
+                    float: left;
+                    width: 100%;
+                    height: 270px;
+                    overflow: hidden;
+                    display: none;
+                    background-color: #fff;
+                }
+
+                    #cfacebook .fchat .fb-page {
+                        margin-top: -130px;
+                        float: left;
+                    }
+
+                #cfacebook a.chat_fb {
+                    float: left;
+                    padding: 0 25px;
+                    width: 250px;
+                    color: #fff;
+                    text-decoration: none;
+                    height: 40px;
+                    line-height: 40px;
+                    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+                    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);
+                    background-repeat: repeat-x;
+                    background-size: auto;
+                    background-position: 0 0;
+                    background-color: #3a5795;
+                    border: 0;
+                    border-bottom: 1px solid #133783;
+                    z-index: 9999999;
+                    margin-right: 12px;
+                    font-size: 18px;
+                }
+
+                    #cfacebook a.chat_fb:hover {
+                        color: yellow;
+                        text-decoration: none;
+                    }
+
+            .zalo-icon {
+                width: auto !important;
+                height: auto !important;
+            }
+        </style>
+    </form>
+</body>
+</html>

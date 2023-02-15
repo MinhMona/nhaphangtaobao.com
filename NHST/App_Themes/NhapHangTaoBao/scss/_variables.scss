@@ -1,0 +1,33 @@
+$main-color: #DC3545;
+$text-color: #000;
+@mixin max-media($point) {
+    @media screen and (max-width: $point) {
+        @content;
+    }
+}
+@mixin min-media($point) {
+    @media screen and (min-width: $point) {
+        @content;
+    }
+}
+@mixin line-clamp($line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $line;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+@mixin clear-fix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+@mixin fz-30 {
+    font-size: 30px;
+    line-height: 1.2;
+    @include max-media(768px){
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,247 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DangTrangMaster.master.cs" Inherits="NHST.DangTrangMaster" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+    <link rel="stylesheet" href="/App_Themes/DangTrang/css/style.css">
+    <script src="/App_Themes/DangTrang/js/jquery-1.12.4.min.js"></script>
+    <title>Dang Trang Logictics</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <header class="header">
+            <div class="top-header">
+                <div class="container">
+                    <ul class="top-header-info top-header-info-left">
+                        <li>
+                            <img src="/App_Themes/DangTrang/images/tel.png" alt="">
+                            <asp:Literal runat="server" ID="ltrTel"></asp:Literal>
+                        </li>
+                        <li>
+                            <img src="/App_Themes/DangTrang/images/mail.png" alt="">
+                            <asp:Literal runat="server" ID="ltrMail"></asp:Literal>
+                        </li>
+                        <li>
+                            <img src="/App_Themes/DangTrang/images/clock.png" alt="">
+                            <asp:Literal runat="server" ID="ltrCurrency"></asp:Literal>
+                        </li>
+                    </ul>
+                    <ul class="top-header-info top-header-info-right">
+                        <li><a href="#">Công cụ đặt hàng</a></li>
+                        <li><a href="#">Ứng dụng mobile</a></li>
+                        <li>
+                            <ul class="social-nav">
+                                <asp:Literal runat="server" ID="ltrSocial"></asp:Literal>
+                                <%--<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>--%>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="container">
+                    <a href="#" class="custom-logo-link">
+                        <asp:Literal runat="server" ID="ltrLogo"></asp:Literal>
+                    </a>
+                    <div class="main-header-right">
+                        <div class="main-menu">
+                            <asp:Literal runat="server" ID="ltrMenu"></asp:Literal>
+                            <div class="main-menu-overlay"></div>
+                        </div>
+                        <div class="user-box">
+                            <asp:Literal runat="server" ID="ltrLogin"></asp:Literal>
+                            <div class="status-desktop">
+                                <div class="status-wrap">
+                                    <div class="status__header">
+                                        <h4>VIP 2</h4>
+                                    </div>
+                                    <div class="status__body">
+                                        <div class="level">
+                                            <div class="level__info">
+                                                <p>Level</p>
+                                                <p class="rank">VIP 2</p>
+                                            </div>
+                                            <div class="level__process"><span style="width: 33.00%"></span></div>
+                                        </div>
+                                        <div class="balance">
+                                            <p>Số dư:</p>
+                                            <div class="balance__number">
+                                                <p class="vnd">87,893,784 vnđ</p>
+                                            </div>
+                                        </div>
+                                        <div class="links">
+                                            <a href="/manager/login">Quản trị<i
+                                                class="fa fa-caret-right"></i></a>
+                                        </div>
+                                        <div class="links">
+                                            <a href="/thong-tin-nguoi-dung">Thông tin tài khoản<i
+                                                class="fa fa-caret-right"></i></a>
+                                        </div>
+                                        <div class="links">
+                                            <a href="/danh-sach-don-hang?t=1">Đơn hàng của bạn<i
+                                                class="fa fa-caret-right"></i></a>
+                                        </div>
+                                        <div class="links">
+                                            <a href="/lich-su-giao-dich">Lịch sử giao dịch<i
+                                                class="fa fa-caret-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="status__footer"><a href="/dang-xuat" class="ft-btn">ĐĂNG XUẤT</a></div>
+                                </div>
+                            </div>
+                            <div class="status-mobile">
+                                <a href="#" class="user-menu-logo">
+                                    <img src="/App_Themes/DangTrang/images/logo.png" alt="">
+                                </a>
+                                <h3 class="username">PHUONG NGUYEN</h3>
+                                <div class="user-info">
+                                    Số tiền: <span class="money">9,000,000</span> vnđ | Level <span
+                                        class="vip">vip 2</span>
+                                </div>
+                                <div class="nav-percent">
+                                    <div class="nav-percent-ok" style="width: 33.00%"></div>
+                                </div>
+                                <div class="profile-bottom">
+                                    <ul class="menu-in-profile">
+                                        <li>
+                                            <a href="#"><i class="fa fa-home"></i>TRANG CHỦ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-search"></i>TRACKING</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-home"></i>MUA HÀNG HỘ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-money"></i>TÀI CHÍNH</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-exclamation"></i>KHIẾU NẠI</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-user"></i>QUẢN LÝ TÀI KHOẢN</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="main-btn main-btn-3">ĐĂNG XUẤT</a>
+                            </div>
+                            <div class="overlay-status-mobile"></div>
+                        </div>
+                        <div class="hamburger-btn main-menu-btn">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer class="footer">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="columns">
+                        <asp:Literal runat="server" ID="ltrFooter"></asp:Literal>
+
+                        <div class="column">
+                            <p class="ft-title">Social</p>
+                            <ul class="social-nav ft-social-nav">
+                                <asp:Literal ID="ltrSocialfFooter" runat="server"></asp:Literal>
+                            </ul>
+                        </div>
+
+                        <div class="column">
+                            <p class="ft-title">FANPAGE</p>
+                            <div class="fanpage">
+                                <div id="fb-root">&nbsp;</div>
+                                <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/%C4%90%C4%83ng-Trang-Logistics-V%E1%BA%ADn-chuy%E1%BB%83n-h%C3%A0ng-Trung-Qu%E1%BB%91c-oder-taobao-s%E1%BB%89-l%E1%BA%BB-gi%C3%A1-r%E1%BA%BB-715419281931144/?ref=bookmarks"
+                                    data-tabs="timeline" data-small-header="true" data-adapt-container-width="true"
+                                    data-hide-cover="true" data-show-facepile="true" fb-xfbml-state="rendered"
+                                    fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=1916689885307106&amp;container_width=293&amp;hide_cover=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Fthietkewebsitemonamedia%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline">
+                                    <span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;">
+                                        <iframe
+                                            name="f27701494e21e84" frameborder="0"
+                                            allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media"
+                                            title="fb:page Facebook Social Plugin"
+                                            src="https://www.facebook.com/%C4%90%C4%83ng-Trang-Logistics-V%E1%BA%ADn-chuy%E1%BB%83n-h%C3%A0ng-Trung-Qu%E1%BB%91c-oder-taobao-s%E1%BB%89-l%E1%BA%BB-gi%C3%A1-r%E1%BA%BB-715419281931144/?ref=bookmarks"
+                                            style="border: none; visibility: visible; width: 0px; height: 0px;"></iframe>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">Designed and developed by Mona Media</div>
+            </div>
+        </footer>
+        <span class="scroll-top"><i class="fa fa-angle-up"></i></span>
+
+        <script src="/App_Themes/DangTrang/js/WOW-master/wow.min.js"></script>
+        <script src="/App_Themes/DangTrang/js/main.js"></script>
+
+        <script>
+            jQuery(document).ready(function () {
+                jQuery(".chat_fb").click(function () {
+                    jQuery('.fchat').toggle('slow');
+                });
+            });
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=1916689885307106&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            new WOW().init();
+
+            function isEmpty(str) {
+                return !str.replace(/^\s+/g, '').length; // boolean (`true` if field is empty)
+            }
+            function closewebinfo() {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/closewebinfo",
+                    //data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            $(".webinfo").remove();
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+
+        </script>
+
+    </form>
+</body>
+</html>

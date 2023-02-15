@@ -1,0 +1,245 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TanConDuongToLuaMaster.master.cs" Inherits="NHST.TanConDuongToLuaMaster" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/App_Themes/conduongtolua/js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="/App_Themes/conduongtolua/css/style.css">
+    <link rel="stylesheet" href="/App_Themes/conduongtolua/css/responsive.css">
+
+    <title>NhapHangTaoBao</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <div id="cfacebook">
+            <a href="javascript:;" class="chat_fb" onclick="return:false;"><i class="fa fa-facebook-square"></i> Phản hồi của bạn</a>
+            <div class="fchat">
+                <div class="fb-page" data-tabs="messages" data-href="https://www.facebook.com/tanconduongtolua/" data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+            </div>
+        </div>
+        <header class="header">
+            <div class="container">
+                <div class="top-header">
+                    <div class="top-header-info">
+                        <p>
+                            <asp:Literal runat="server" ID="ltrCurrency"></asp:Literal>
+                        </p>
+                        |
+                    <p>
+                        Hotline:
+                        <asp:Literal runat="server" ID="ltrTel"></asp:Literal>
+                    </p>
+                    </div>
+                    <div class="user-box">
+                        <asp:Literal runat="server" ID="ltrLogin"></asp:Literal>
+                    </div>
+                </div>
+                <div class="main-header">
+                    <asp:Literal runat="server" ID="ltrLogo"></asp:Literal>
+                    <div class="main-menu">
+                        <ul class="main-menu-nav">
+                            <li class="current-menu-item"><a href="/">Trang chủ</a></li>
+                            <asp:Literal runat="server" ID="ltrMenu"></asp:Literal>
+                        </ul>
+                        <div class="main-menu-overlay"></div>
+                    </div>
+                    <div class="hamburger-btn main-menu-btn">
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer class="footer">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column">
+                            <div class="ft-logo">
+                                <asp:Literal runat="server" ID="ltrFooter"></asp:Literal>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <p class="ft-title">Thông tin liên hệ</p>
+                            <ul class="ft-info-nav">
+                                <li><i class="fa fa-home" aria-hidden="true"></i>
+                                    <asp:Literal runat="server" ID="ftAddress"></asp:Literal></li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>
+                                    <asp:Literal runat="server" ID="ftPhone"></asp:Literal></li>
+                                <li><i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <asp:Literal runat="server" ID="ftEmail"></asp:Literal></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                        <p class="ft-title">Thông tin chi tiết</p>
+                        <ul class="ft-menu-nav">
+                            <li><a href="/chuyen-muc/gioi-thieu">Giới thiệu</a></li>
+                            <li><a href="/chuyen-muc/huong-dan">Hướng dẫn</a></li>
+                            <li><a href="/chuyen-muc/tin-tuc">Tin tức</a></li>
+                            <li><a href="/chuyen-muc/chinh-sach">Chính sách đóng hàng</a></li>
+                            <li><a href="/chuyen-muc/chinh-sach">Chính sách khiếu nại</a></li>
+                        </ul>
+                    </div>
+                        <div class="column">
+                            <div class="ft-fanpage">
+                                <div id="fb-root"></div>
+                                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&autoLogAppEvents=1&version=v4.0&appId=352227122339666"></script>
+                                <div style="max-width: 100%; overflow: hidden;" class="fb-page" data-href="https://www.facebook.com/tanconduongtolua/" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                                    <blockquote cite="https://www.facebook.com/tanconduongtolua/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tanconduongtolua/">Tanconduongtolua.com</a></blockquote>
+                                </div>
+                            </div>
+                            <div class="extensions-btn-wrapper">
+                                <a href="/" class="main-btn white-btn">
+                                    <img src="/App_Themes/conduongtolua/images/chrome.png" alt="">Chrome</a>
+                                <a href="/" class="main-btn white-btn">
+                                    <img src="/App_Themes/conduongtolua/images/coccoc.png" alt="">Cốc Cốc</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-footer">
+                <div class="container">Copyright © 2020 Tanconduongtolua.com. All Rights Reserved</div>
+            </div>
+        </footer>
+        <span class="scroll-top"><i class="fa fa-angle-up"></i></span>
+
+        <script src="/App_Themes/conduongtolua/js/slick-1.8.1/slick.min.js"></script>
+        <script src="/App_Themes/conduongtolua/js/WOW-master/wow.min.js"></script>
+        <script src="/App_Themes/conduongtolua/js/main.js"></script>
+
+        <script>
+            //jQuery(document).ready(function () {
+            //    jQuery(".chat_fb").click(function () {
+            //        jQuery('.fchat').toggle('slow');
+            //    });
+            //});
+
+            //(function (d, s, id) {
+            //    var js, fjs = d.getElementsByTagName(s)[0];
+            //    if (d.getElementById(id)) return;
+            //    js = d.createElement(s); js.id = id;
+            //    js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=1916689885307106&autoLogAppEvents=1';
+            //    fjs.parentNode.insertBefore(js, fjs);
+            //}(document, 'script', 'facebook-jssdk'));
+            jQuery(document).ready(function () {
+                jQuery(".chat_fb").click(function () {
+                    jQuery('.fchat').toggle('slow');
+                });
+            });
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=1916689885307106&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            new WOW().init();
+
+            function isEmpty(str) {
+                return !str.replace(/^\s+/g, '').length; // boolean (`true` if field is empty)
+            }
+            function closewebinfo() {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/closewebinfo",
+                    //data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            $(".webinfo").remove();
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+
+        </script>
+          <style>
+            #cfacebook {
+                position: fixed;
+                bottom: 0px;
+                right: 20px;
+                z-index: 999999999999999;
+                width: 250px;
+                height: auto;
+                box-shadow: 6px 6px 6px 10px rgba(0,0,0,0.2);
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                overflow: hidden;
+            }
+
+                #cfacebook .fchat {
+                    float: left;
+                    width: 100%;
+                    height: 270px;
+                    overflow: hidden;
+                    display: none;
+                    background-color: #fff;
+                }
+
+                    #cfacebook .fchat .fb-page {
+                        margin-top: -130px;
+                        float: left;
+                    }
+
+                #cfacebook a.chat_fb {
+                    float: left;
+                    padding: 0 25px;
+                    width: 250px;
+                    color: #fff;
+                    text-decoration: none;
+                    height: 40px;
+                    line-height: 40px;
+                    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+                    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);
+                    background-repeat: repeat-x;
+                    background-size: auto;
+                    background-position: 0 0;
+                    background-color: #3a5795;
+                    border: 0;
+                    border-bottom: 1px solid #133783;
+                    z-index: 9999999;
+                    margin-right: 12px;
+                    font-size: 18px;
+                }
+
+                    #cfacebook a.chat_fb:hover {
+                        color: yellow;
+                        text-decoration: none;
+                    }
+
+            .zalo-icon {
+                width: auto !important;
+                height: auto !important;
+            }
+        </style>
+    </form>
+</body>
+</html>

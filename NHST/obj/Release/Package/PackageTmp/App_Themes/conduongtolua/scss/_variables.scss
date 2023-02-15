@@ -1,0 +1,28 @@
+$main-color: #c33a2c;
+$main-color-2: #d9746a;
+$text-color: #2d132c;
+@mixin max-media($point) {
+    @media screen and (max-width: $point) {
+        @content;
+    }
+}
+@mixin min-media($point) {
+    @media screen and (min-width: $point) {
+        @content;
+    }
+}
+@mixin line-clamp($line, $height: auto) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $line;
+    height: $height;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+@mixin clear-fix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
